@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html>
+<head>
+    <title>Mental Health Human Resources</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+<style>
+    #map {
+        height: 100%;
+    }
+
+    #map-container{
+        height: 40%;
+        width: 50%;
+        text-align: center;
+        float: left;
+    }
+
+    #stats{
+        text-align: center;
+        visibility: hidden;
+        paddiing: 10px;
+
+    }
+    #continent-text{
+        text-align: center;
+
+    }
+</style>
+</head>
+<body>
+
+<h1><div Mental health spending style="text-align: center;"/>Mental Health Human Resources</h1>
+<br>
+<br>
+<div id="map-container">
+    <h2 id="continent-text">Click on a continent.</h2>
+    <div id="map"></div>
+
+</div>
+<div id="stats">
+
+    <h4 id ="stats-title">The number of healthcare workers per 1000 people for Europe on average.</h4>
+<!--    <div id="legend">-->
+<!--<img class="person_img" src="icon_filled.png"/> = 1 Mental Health Worker-->
+<!--    </div>-->
+<!--        <br><br>-->
+
+<!--        <br>-->
+    <h4>Click a button to see the different categories.</h4>
+        <div id="buttons_section">
+            <button id="physcia" onclick="displayQuarter()">Number of Psychiatrists</button>
+            <button id="nurses" onclick="displayHalf()">Number of Nurses</button><br>
+            <button id="soc" onclick="displayQuarter()">Number of Social Workers</button>
+            <button id="psychol" onclick="displayQuarter()">Number of Psychologists</button>
+        </div>
+    <br>
+    <br>
+    <br>
+    <div id="image_row" style="text-align: left;"/>
+    <img id="first_image" class="person_img" src="icon_not_filled.png"/>
+    <img id ="second_image" class="person_img" src="icon_not_filled.png"/>
+
+</div>
+    <br>
+    <br>
+
+
+
+
+
+</div>
+
+</div>
+</table>
+<script>
+    var map;
+    var onEurope = false;
+    var onFinland = false;
+    var onBelgium = false;
+    var whichStat = 0;
+
+    numPhysciaEurope = 14.45182353 / 100 // quarter
+    numNursesEurope = 35.76611538 / 1000 // half
+    numSocEurope = 7.1375 / 1000 // quarter
+    numPsycholEurope = 23.18782143 / 1000 // quarter
+
+    numPhysciaFinland = 25.586 / 1000 // quarter
+    numNursesFinland = 51.97 / 1000 // half
+    numSocFinland = 2.754 / 1000 // quarter
+    numPsycholFinland = 109.486 / 1000 // 1 and quarter
+
+    numPhysciaFinland = 20.057 / 1000 // quarter
+    numNursesFinland = 125.692 / 1000 // 1 and a quarter
+    numSocFinland = 17.435 / 1000 // quarter
+    numPsycholFinland = 10.462 / 1000 // quarter
+
+
+
+    function displayEuropeData(){
+    document.getElementById("stats").style.visibility = "visible"
+        // document.getElementById("stats-title").innerText = "Mental health worker averages for Europe"
+        // document.getElementById("psychol").onclick = displayOne();
+
+
+    }
+
+    function showFirstImage(){
+        document.getElementById("first_image").style.visibility = "visible"
+    }
+
+    function hideFirstImage(){
+        document.getElementById("first_image").style.visibility = "hidden"
+
+    }
+
+    function hideSecondImage(){
+        document.getElementById("second_image").style.visibility = "hidden"
+
+    }
+
+    function showSecondImage(){
+        document.getElementById("second_image").style.visibility = "visible"
+
+    }
+
+
+
+
+    function displayQuarter(){
+       hideSecondImage()
+        document.getElementById("first_image").src = "icon_quarter.png"
+        showFirstImage()
+
+    }
+
+    function displayHalf(){
+        hideSecondImage()
+        document.getElementById("first_image").src = "icon_half.png"
+        showFirstImage()
+
+    }
+
+    function displayOneAndQuarter(){
+        document.getElementById("first_image").src = "icon_filled.png"
+        document.getElementById("second_image").src = "icon_quarter.png"
+        showFirstImage()
+        showSecondImage()
+
+    }
+    function displayFinlandData(){
+        document.getElementById("stats-title").innerText = "The number of healthcare workers per 1000 people for Finland."
+        document.getElementById("psychol").onclick = function() {
+            document.getElementById("first_image").src = "icon_filled.png"
+            document.getElementById("second_image").src = "icon_quarter.png"
+            showFirstImage()
+            showSecondImage()
+        };
+    }
+
+    function displayBelgiumData(){
+        document.getElementById("stats-title").innerText = "The number of healthcare workers per 1000 people for Belgium."
+        document.getElementById("nurses").onclick = function() {
+            document.getElementById("first_image").src = "icon_filled.png"
+            document.getElementById("second_image").src = "icon_quarter.png"
+            showFirstImage()
+            showSecondImage()
+        };
+    }
+
+
+
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 54.5260, lng: 15.2551},
+            zoom: 1
+        });
+
+        var clickListen1 = map.addListener('click', function () {
+
+              displayEuropeData();
+              map.setZoom(3)
+              onEurope = true;
+			  google.maps.event.removeListener(clickListen1);
+
+			   var clickListen2 = map.addListener('click', function(){
+			       document.getElementById("continent-text").innerText = "Click on a country for individual statistics.";
+                   map.setCenter( {lat: 61.9241, lng: 25.7482} );
+					map.setZoom(5);
+					displayFinlandData();
+					google.maps.event.removeListener(clickListen2);
+
+				var clickListen3 = map.addListener('click', function(){
+					map.setCenter({lat: 50.5039, lng: 4.4699});
+					map.setZoom(7);
+					displayBelgiumData();
+
+			   })
+
+			   })
+
+
+        })
+
+
+
+
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7UQngFMHEBvrzy0joaEJld0YruOgPu_Q&callback=initMap"
+        async defer></script>
+</body>
+</html>

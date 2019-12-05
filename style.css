@@ -1,0 +1,93 @@
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+
+
+#country-text{
+    visibility: hidden;
+}
+p{
+    font-family: Arial, serif;
+    font-size: 14px;
+}
+
+h1{
+    font-family: Arial, serif;
+    font-size: 28px;
+}
+
+h2{
+    font-family: Arial, serif;
+    font-size: 24px;
+}
+
+h4{
+    font-family: Arial, serif;
+    font-size: 18px;
+}
+
+h5{
+    font-family: Arial, serif;
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: lighter;
+
+}
+
+container{
+    overflow:hidden;
+}
+
+
+#image_row{
+    display: inline-block;
+    text-align: center;
+    alignment: center;
+}
+
+#legend{
+    border-color: black;
+    border-radius: 2px;
+}
+
+.person_img {
+    padding: 0;
+    width: 60px;
+    height: 59px;
+    visibility: hidden;
+}
+
+.index_button{
+    background-color: #2665c4; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+/*button{    background-color: #2665c4; !* Green *!*/
+/*    border: none;*/
+/*    color: white;*/
+/*    padding: 15px 32px;*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*    display: inline-block;*/
+/*    font-size: 16px;*/
+/*}*/
+
+
+.charted{
+    width: 777px;
+    height: 567px;
+    padding: 10px;
+
+}
+ /* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mental Health Statistical Visualisations</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+<div id="container"></div>
+<h1><div style="text-align: center;">Mental Health Statistical Visualisations</h1>
+<br>
+<br>
+
+<div id="buttons-index" style="text-align: center;">
+    <button id="governance" class="index_button" onclick="goToGovernance()">Mental Health Spending</button><br><br>
+    <button id="hr" class="index_button" onclick="goToHR()">Human Resources</button><br><br>
+    <button id="service_availability" class="index_button" onclick="goToAvailability()">Mental health service availability</button>
+</div>
+<script>
+    function goToGovernance() {
+        window.location.href = 'governance.html'
+
+    }
+    function goToHR() {
+        window.location.href = 'workers.html'
+
+    }
+    function goToAvailability() {
+        window.location.href = 'beds_and_units.html'
+
+    }
+</script>
+
+<br><br><br>
+<div id="yada">
+
+<h5>Mental health issues affect one in four people, and according to the <a href="https://www.who.int/whr/2001/media_centre/press_release/en/"> World Health Organisation</a>, treatments are available, but almost two-thirds of people never get help from a professional. This page was created to help understand the availability of mental health services globally, as well as to be able to compare the availability in countries in the same regions. </h5>
+
+<h5>Mental health issues, by definition, are non-communicable diseases (NCDs), and often correlate with other NCDs, like obesity and respiratory conditions. This page will be updated with statistics about other non-communicable diseases, in order to be able to analyze the data and show the correlation between these NCDs and mental health disorders.</h5>
+</div>
+
+</body>
+</html>

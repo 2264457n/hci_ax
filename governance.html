@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mental Health Spending</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.min.js"></script>
+</head>
+<body>
+<h1><div Mental health spending style="text-align: center;"/> Mental Health Spending</h1>
+<table style="width:100%">
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <th><h2>A comparison of average spending on mental health by region as a percentage(%) of health budget.</h2></th>
+                </tr>
+                <tr>
+                    <td><canvas id="PolarAreaChart" width="800" height="800"></canvas></td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <th><h4>Click a region to see a breakdown of spending by country.</h4></th>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="afr()">Africa</button>
+                        <button onclick="ame()">Americas</button>
+                        <button onclick="em()">Eastern Mediterranean</button>
+                        <button onclick="eur()">Europe</button>
+                        <button onclick="sea()">South-East Asia</button>
+                        <button onclick="wp()">Western Pacific</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="afrDiv">
+                            <canvas id="afrBarChart" width="800" height="800"></canvas>
+                        </div>
+                        <div id="ameDiv" style="display: none;">
+                            <canvas id="ameBarChart" width="800" height="800"></canvas>
+                        </div>
+                        <div id="emDiv" style="display: none;">
+                            <canvas id="emBarChart" width="800" height="800"></canvas>
+                        </div>
+                        <div id="eurDiv" style="display: none;">
+                            <canvas id="eurBarChart" width="800" height="800"></canvas>
+                        </div>
+                        <div id="seaDiv" style="display: none;">
+                            <canvas id="seaBarChart" width="800" height="800"></canvas>
+                        </div>
+                        <div id="wpDiv" style="display: none;">
+                            <canvas id="wpBarChart" width="800" height="800"></canvas>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<script src="data.js"></script>
+<script src="governance.js"></script>
+</body>
+</html>
